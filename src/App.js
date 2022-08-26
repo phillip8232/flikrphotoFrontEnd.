@@ -18,7 +18,7 @@ function App() {
     fetchData();
   }, []);
 
-  const listItems = photo.map((el) => <img src={el.m} />);
+  const listItems = photo.map((el) => <img src={el.m} width="100" height="100" />);
   return (
     
     <div className="App">

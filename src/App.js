@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState,useEffect } from 'react';
+import axios from 'axios';
 
+//should use components normally but wanna stick to the timeframe
 function App() {
+  const [photo,setPhoto] = useState([])
+
+  useEffect(() => {
+    //fetch data from my local backend won't work if it's not up
+    const fetchData = async () => {
+      const photos = await axios(
+        'http://localhost:5000/',
+      );
+      
+      setPhoto(photos.data);
+    };
+ 
+    fetchData();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* Testing */}
+        <img src={`${photo[0].m}`} />
+        <img src={`${photo[1].m}`} />
+        <img src={`${photo[2].m}`} />
       </header>
     </div>
   );
+
 }
 
 export default App;

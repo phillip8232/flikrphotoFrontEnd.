@@ -18,12 +18,15 @@ function App() {
     fetchData();
   }, []);
 
+  //listing all my photo
   const listItems = photo.map((el) => <img src={el.m} width="100" height="100" />);
   return (
     
     <div className="App">
       <header className="App-header">
         {listItems}
+        <br />
+        <input type="text" placeholder="Search.."></input>
       </header>
     </div>
   );

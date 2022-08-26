@@ -18,13 +18,12 @@ function App() {
     fetchData();
   }, []);
 
+  const listItems = photo.map((el) => <img src={el.m} />);
   return (
+    
     <div className="App">
       <header className="App-header">
-        {/* Testing */}
-        <img src={`${photo[0].m}`} />
-        <img src={`${photo[1].m}`} />
-        <img src={`${photo[2].m}`} />
+        {listItems}
       </header>
     </div>
   );
